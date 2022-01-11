@@ -17,7 +17,7 @@ app.use(cors());
 
 //import routes
 const postRoutes = require('./routes/posts');
-app.use('/posts',postRoutes);
+app.use('/Posts',postRoutes);
 
 /*app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -40,12 +40,12 @@ app.use('/posts',postRoutes);
 });*/
 
 //my sql
-const mysql = require('./db_config');
+//const mysql = require('./db_config');
 
-//mongoose.connect('mongodb://localhost:27017/sep-dec-21-ng-db',()=> 
-////    console.log('conected to mongo db')
-//);
-//mongoose.connection.on("connected",()=> console.log('conected to mongo db'));
+mongoose.connect('mongodb://localhost:27017/sep-dec-21-ng-db',()=> 
+    console.log('conected to mongo db')
+);
+mongoose.connection.on("connected",()=> console.log('checking whether connection event trigger to mongo db'));
 
 app.get('/',(req,res) => {
     res.send('We are at home');
